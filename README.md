@@ -8,7 +8,7 @@
 2. 在 Dalamud 的 **Settings → Experimental → Custom Plugin Repositories** 中添加：
 
    ```text
-   https://raw.githubusercontent.com/<GitHub用户名>/<仓库名>/main/repo.json
+   https://raw.githubusercontent.com/chpkq/DalamudPlugins/main/repo.json
    ```
 
 3. 保存后打开 Plugin Installer。现在仓库是有效的，但尚未包含插件，因此列表为空。
