@@ -2,7 +2,7 @@
   "plugins": [
     {
       "internalName": "UntarnishedHeart",
-      "tagPrefix": "v"
+      "sourceRepo": "AtmoOmen/UntarnishedHeart"
     }
   ]
 }

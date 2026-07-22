@@ -53,8 +53,13 @@ for plugin_path in "$plugin_dir"/*.json; do
     continue
   fi
 
-  # 版本号从 Tag 中提取；例如 tagPrefix 为 v 时接受 v1.2.3.4。
-  tag_pattern="^${tag_prefix}(?<version>[0-9]+\\.[0-9]+\\.[0-9]+(?:\\.[0-9]+)?)$"
+  # 与 Update-PluginMaster.ps1 保持一致：无前缀时匹配纯版本号，
+  # 指定前缀时匹配“前缀-版本号”，例如 stable-1.2.3.4。
+  if [[ -z "$tag_prefix" ]]; then
+    tag_pattern='^(?<version>[0-9]+\.[0-9]+\.[0-9]+(?:\.[0-9]+)?)$'
+  else
+    tag_pattern="^${tag_prefix}-(?<version>[0-9]+\\.[0-9]+\\.[0-9]+(?:\\.[0-9]+)?)$"
+  fi
   if ! latest="$(jq -cer --arg pattern "$tag_pattern" '
       [ .[] | select(.draft | not) | select(.prerelease | not) ]
       | sort_by(.published_at // .created_at)
