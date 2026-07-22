@@ -1,0 +1,18 @@
+{
+  "Author": "AtmoOmen",
+  "Name": "Untarnished Heart",
+  "Description": "原本是自动化防护职业副本场次成就刷取工具\n注: 副本战斗需要自行使用其他插件解决, 硬要用本插件写也不是不行",
+  "InternalName": "UntarnishedHeart",
+  "AssemblyVersion": "1.0.10.0",
+  "TestingAssemblyVersion": null,
+  "RepoUrl": "https://github.com/chpkq/UntarnishedHeart",
+  "ApplicableVersion": "any",
+  "DalamudApiLevel": 15,
+  "Punchline": "自动化副本完成、奖励循环刷取插件",
+  "IsHide": false,
+  "IsTestingExclusive": false,
+  "DownloadLinkInstall": "https://github.com/chpkq/UntarnishedHeart/releases/download/v1.0.10.0/latest.zip",
+  "DownloadLinkTesting": "https://github.com/chpkq/UntarnishedHeart/releases/download/v1.0.10.0/latest.zip",
+  "DownloadLinkUpdate": "https://github.com/chpkq/UntarnishedHeart/releases/download/v1.0.10.0/latest.zip",
+  "LastUpdate": "1784721443"
+}
