@@ -37,8 +37,11 @@ for plugin_path in "$plugin_dir"/*.json; do
   internal_name="$(jq -er '.InternalName' "$plugin_path")"
   repo_url="$(jq -er '.RepoUrl' "$plugin_path")"
   rule="$(jq -c --arg internal_name "$internal_name" '.plugins[]? | select(.internalName == $internal_name)' "$rules_path" | head -n 1)"
-  tag_prefix="$(jq -r '.tagPrefix // ""' <<<"${rule:-{}}")"
-  source_repo="$(jq -r '.sourceRepo // ""' <<<"${rule:-{}}")"
+  if [[ -z "$rule" ]]; then
+    rule='{}'
+  fi
+  tag_prefix="$(jq -r '.tagPrefix // ""' <<<"$rule")"
+  source_repo="$(jq -r '.sourceRepo // ""' <<<"$rule")"
 
   if [[ -z "$source_repo" ]]; then
     source_repo="$(get_repo_slug "$repo_url")"
