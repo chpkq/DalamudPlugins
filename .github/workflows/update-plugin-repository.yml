@@ -1,0 +1,46 @@
+name: 自动更新插件索引
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *'
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-plugin-repository
+  cancel-in-progress: true
+
+jobs:
+  update-plugin-repository:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: 更新插件 Release 信息
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: bash scripts/update-plugin-repository.sh
+
+      - name: 重建仓库索引
+        run: bash scripts/build-repo.sh
+
+      - name: 提交更新
+        shell: bash
+        run: |
+          git add plugins/*.json repo.json
+          if git diff --cached --quiet; then
+            echo "插件索引没有变化"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "自动更新插件版本与下载链接"
+          git push
