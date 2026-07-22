@@ -1,0 +1,8 @@
+# Generated repository index.  It is committed so Dalamud can fetch it directly.
+# Keep only local/editor files out of the repository.
+.DS_Store
+.idea/
+.vs/
+bin/
+obj/
+

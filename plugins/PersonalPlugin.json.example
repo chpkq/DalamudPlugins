@@ -1,0 +1,18 @@
+{
+  "Author": "YourName",
+  "Name": "My Personal Plugin",
+  "Description": "A private Dalamud plugin distributed from my custom repository.",
+  "InternalName": "MyPersonalPlugin",
+  "AssemblyVersion": "1.0.0.0",
+  "TestingAssemblyVersion": null,
+  "RepoUrl": "https://github.com/OWNER/MyPersonalPlugin",
+  "ApplicableVersion": "any",
+  "DalamudApiLevel": 13,
+  "Punchline": "One-line summary shown in the installer.",
+  "IsHide": false,
+  "IsTestingExclusive": false,
+  "DownloadLinkInstall": "https://github.com/OWNER/MyPersonalPlugin/releases/download/v1.0.0/MyPersonalPlugin.zip",
+  "DownloadLinkTesting": "https://github.com/OWNER/MyPersonalPlugin/releases/download/v1.0.0/MyPersonalPlugin.zip",
+  "DownloadLinkUpdate": "https://github.com/OWNER/MyPersonalPlugin/releases/download/v1.0.0/MyPersonalPlugin.zip",
+  "LastUpdate": "1760000000"
+}
